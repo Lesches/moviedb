@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MoviedbService} from '../../../models/moviedb.service';
+import {Show} from '../../../models/Shows';
+
+
 
 @Component({
   selector: 'app-movies',
@@ -7,6 +10,8 @@ import {MoviedbService} from '../../../models/moviedb.service';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
+  @Input() term: string;
+  shows: Show[];
   query = 'Synecdoche+New+York';
   constructor(private moviedb: MoviedbService) {}
 

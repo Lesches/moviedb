@@ -18,9 +18,11 @@ title: Show;
 
   // Will pass the search term to the results component
   async onSearch() {
-    this.movieService.movieSearch(
-      this.route.snapshot.paramMap.get('query')
-    ).subscribe(result => this.title = result);
+    if (this.title) {
+      this.movieService.movieSearch(
+        this.route.snapshot.paramMap.get('query')
+      ).subscribe(result => this.title = result);
+    }
   }
 
 }

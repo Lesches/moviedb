@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieDetailsComponent } from './views/results/movies/movie-details/movie-details.component';
 import { SearchComponent } from './views/search/search.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {MatListModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
