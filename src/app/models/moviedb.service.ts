@@ -14,7 +14,7 @@ export class MoviedbService {
   constructor(public http: HttpClient) { }
 
   // Fix this so it uses a custom datatype
-  movieSearch(query: string): Observable<Show> {
+  movieSearch(query: string): Observable<string> {
     const url = this.baseUrl + 'search/movie' + this.apikey + '&query=' + query;
     return this.http.get(url).pipe(
       map(res => {

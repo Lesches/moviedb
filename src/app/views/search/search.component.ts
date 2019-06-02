@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MoviedbService} from '../../models/moviedb.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Show} from '../../models/Shows';
 
 @Component({
   selector: 'app-search',
@@ -10,7 +9,7 @@ import {Show} from '../../models/Shows';
 })
 export class SearchComponent implements OnInit {
 
-title: Show;
+title: string;
   constructor(private movieService: MoviedbService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -19,6 +18,7 @@ title: Show;
   // Will pass the search term to the results component
   async onSearch() {
     if (this.title) {
+
       this.movieService.movieSearch(
         this.route.snapshot.paramMap.get('query')
       ).subscribe(result => this.title = result);
