@@ -11,13 +11,14 @@ import {Show} from '../../../models/Shows';
 })
 export class MoviesComponent implements OnInit {
   @Input() term: string;
-  shows: Show[];
+  shows: Show;
   query = 'Synecdoche+New+York';
   constructor(private moviedb: MoviedbService) {}
 
+  // retrieves list of shows by search term and displays it
   ngOnInit() {
-    this.moviedb.movieSearch(this.query).subscribe( results => {
-      console.log(results);
+    this.moviedb.movieSearch(this.term).subscribe( results => {
+      this.shows = results;
     });
   }
 }

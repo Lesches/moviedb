@@ -1,12 +1,9 @@
-<form class="form" (ngSubmit)="onSearch()">
+<form class="form">
 
   <div>
     <label>Movie Id:</label>
-    <input type="text" formControlName="title">
+    <input type="text" formControlName="title" [(ngModel)]="title" placeholder="Enter the show you wish to search">
   </div>
-
-
-
-  <button class="button" type="submit">Search</button>
+  <button class="button" (click)="onSearch()">Search</button>
 
 </form>
