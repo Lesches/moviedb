@@ -1,4 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MoviedbService} from '../../models/moviedb.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Show} from '../../models/Shows';
 
 @Component({
   selector: 'app-search',
@@ -6,17 +9,18 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  @Output() search: EventEmitter<any> = new EventEmitter();
-title: string;
-  constructor() { }
+
+title: Show;
+  constructor(private movieService: MoviedbService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
 
-  onSearch() {
-    const title = this.title;
-
-    this.search.emit(title);
+  // Will pass the search term to the results component
+  async onSearch() {
+    this.movieService.movieSearch(
+      this.route.snapshot.paramMap.get('query')
+    ).subscribe(result => this.title = result);
   }
 
 }
