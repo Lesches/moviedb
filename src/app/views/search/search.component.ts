@@ -13,7 +13,7 @@ title: string;
   ngOnInit() {
   }
 
-  onSubmit() {
+  onSearch() {
     const title = this.title;
 
     this.search.emit(title);
