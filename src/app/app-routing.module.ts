@@ -5,7 +5,7 @@ import {MovieDetailsComponent} from './views/results/movies/movie-details/movie-
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'search'},
-  {path: 'results', component: MoviesComponent},
+  {path: 'search', component: MoviesComponent},
   {path: 'results:id', component: MovieDetailsComponent}
 ];
 
